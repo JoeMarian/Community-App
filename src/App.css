@@ -1,0 +1,75 @@
+/* Overall App Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Header on Top (No Overlap) */
+.app-header {
+  height: 60px;
+  background-color: #fff;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Body Layout with Sidebar, Feed, Trending */
+.app-body {
+  display: flex;
+  flex: 1;
+  padding: 80px 20px 20px 20px; /* Push content down to avoid overlap */
+  gap: 20px;
+  overflow-y: auto;
+}
+
+/* Sidebar on the Left */
+.app-body > :first-child {
+  flex: 0.25;
+  background-color: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Feed in the Middle */
+.app-body > :nth-child(2) {
+  flex: 0.5;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Trending on the Right */
+.app-body > :last-child {
+  flex: 0.2;
+  background-color: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive for Smaller Screens */
+@media (max-width: 768px) {
+  .app-body {
+    flex-direction: column;
+    padding: 90px 10px 10px 10px;
+  }
+
+  .app-body > * {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+}
